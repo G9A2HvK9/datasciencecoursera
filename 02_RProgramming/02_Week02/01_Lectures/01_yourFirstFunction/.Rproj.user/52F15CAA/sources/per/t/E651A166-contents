@@ -1,0 +1,28 @@
+## Text file containing functions for Johns Hopkins University Data Science
+## scpecialization course on coursera.
+## Course 2: R Programming
+## Week 2: Programming Assignment 1
+## User: G9A2HVK9
+## Email: g9a2hvk9@gmail.com
+## github: github.com/g9a2hvk9
+
+## Function to calculate the pollutant mean for a single csv file
+pollutantmean <- function(directory, pollutant, id){
+  #Creates vector of files to read
+  files <- paste("./", directory, "/", sprintf("%03d", id), ".csv", sep="")
+  #Reads csv file from directory into variable "data"
+ 
+  datavector <- vector()
+   for(i in files){
+     print(i)
+    append(datavector, read.csv(i))
+   }
+  print(length(datavector))
+  #Creates logical vector to identify NA values in relevant data set
+  bad <- is.na(newdata[pollutant])
+  #Creates new, clean data set called "dataclean"
+  dataclean <- newdata[!bad, 1:3]
+  #Calculates mean of relevant data set based on variable input
+  return(mean(dataclean[[pollutant]]))
+}
+

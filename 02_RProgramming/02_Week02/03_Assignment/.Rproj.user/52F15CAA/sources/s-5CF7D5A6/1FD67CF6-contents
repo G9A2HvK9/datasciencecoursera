@@ -1,0 +1,86 @@
+## Text file containing functions for Johns Hopkins University Data Science
+## scpecialization course on coursera.
+## Course 2: R Programming
+## Week 2: Programming Assignment 1
+## User: G9A2HVK9
+## Email: g9a2hvk9@gmail.com
+## github: github.com/g9a2hvk9
+
+pollutantmean <- function(directory, pollutant, id = 1:332){
+        ## Makes directory path
+        directory <- paste('./', directory, sep ='')
+        ## Creates list of files from all files in directory
+        filelist <- list.files(directory, full.names = TRUE)
+        ## Reads .csv files corresponding to "id" argument and puts them in list
+        datalist <- lapply(filelist[id], read.csv)
+        ## binds datalist into single data frame
+        data <- do.call(rbind, datalist)
+        ## identifties NA values in pollutant column
+        bad <- is.na(data[pollutant])
+        ## cleans data list according to bad data argument
+        cleandata <- data[!bad, 1:ncol(data)]
+        ## calculates & returns mean of cleaned data list
+        return(mean(cleandata[[pollutant]]))
+}
+
+complete <- function(directory, id = 1:332){
+        ## Makes directory path
+        directory <- paste('./', directory, sep ='')
+        ## Creates list of files from all files in directory
+        filelist <- list.files(directory, full.names = TRUE)
+        ## Reads .csv files corresponding to "id" argument
+        datalist <- lapply(filelist[id], read.csv)
+        ## Indictaes non-complete cases from files and moves them into list
+        completelist <- lapply(datalist, function(x) x[complete.cases(x),])
+        ## Counts rows in complete data frames and stores them in vector
+        rowcount <- lapply(completelist, function(x) nrow(x))
+        ## binds id vector and completed rows vector in data frame
+        return(data.frame(cbind(id, rowcount)))
+}
+
+corr <- function(directory, threshold = 0){
+        ## creates list of all file names including directory
+        file.names  <- list.files( paste("./", directory, sep = ""), full.names = TRUE)
+        ## moves files to list of files
+        data.list <- lapply(file.names, read.csv)
+        ## creates list of logical vectors to indicate complete cases
+        good.list <- lapply(data.list, complete.cases)
+        ## creates list data frames of complete cases
+        complete.data <- list()
+        for(i in 1:length(good.list)){
+                complete.data[[i]] <- data.list[[i]][good.list[[i]], ]
+        }
+        ## creates list of complete data frames which have more rows than threshold
+        corr.data <- complete.data[sapply(complete.data, nrow) > threshold]
+        ## logic gate to only calculate corr. when complete cases present
+        if(length(corr.data) > 0){
+                correlations <- list()
+                for( i in 1:length(corr.data)){
+                correlations[[i]] <- cor(corr.data[[i]]["nitrate"], corr.data[[i]]["sulfate"])
+                }
+                numeric.vector <- as.vector(correlations, mode = 'numeric')
+        } else {
+                numeric.vector <- as.vector(c(), mode = 'numeric')
+        }
+        return(numeric.vector)
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

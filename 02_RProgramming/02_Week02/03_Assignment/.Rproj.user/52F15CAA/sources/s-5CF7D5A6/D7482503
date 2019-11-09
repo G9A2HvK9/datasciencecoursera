@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1573298054655.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "D7482503",
+    "lastKnownWriteTime" : 1573298473,
+    "last_content_update" : 1573298473740,
+    "path" : "~/courses/datascience-johnshopkins/02_RProgramming/02_programmingAssignment1/corr.R",
+    "project_path" : "corr.R",
+    "properties" : {
+        "cursorPosition" : "37,85",
+        "scrollLine" : "23"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 1,
+    "source_on_save" : true,
+    "source_window" : "",
+    "type" : "r_source"
+}

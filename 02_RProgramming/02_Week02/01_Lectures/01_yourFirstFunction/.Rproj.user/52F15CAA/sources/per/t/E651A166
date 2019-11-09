@@ -1,0 +1,26 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1573038742452.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "954823951",
+    "id" : "E651A166",
+    "lastKnownWriteTime" : 1573045229,
+    "last_content_update" : 1573045229774,
+    "path" : "~/courses/datascience-johnshopkins/02_RProgramming/Programming Assignment 1/Functions.R",
+    "project_path" : null,
+    "properties" : {
+        "cursorPosition" : "16,12",
+        "scrollLine" : "3",
+        "tempName" : "Untitled1"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
