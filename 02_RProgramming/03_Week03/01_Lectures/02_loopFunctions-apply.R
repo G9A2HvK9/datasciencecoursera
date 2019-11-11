@@ -1,10 +1,10 @@
-        #Johns Hopkins Data Science Track Coursera
-        #Course: 2
-        #Week: 3
+        # Johns Hopkins Data Science Track Coursera
+        # Course: 2
+        # Week: 3
         #
-        #User: g9a2hvk9
-        #email: g9a2hvk9@gmail.com
-        #github: github.com/g9a2hvk9
+        # User: g9a2hvk9
+        # email: g9a2hvk9@gmail.com
+        # github: github.com/g9a2hvk9
         #
         #
         # LOOP FUNCTIONS - APPLY
