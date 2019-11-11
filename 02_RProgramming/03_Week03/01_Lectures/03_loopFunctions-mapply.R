@@ -9,7 +9,7 @@
 #
 # LOOP FUNCTIONS - MAPPLY
 #
-# function (FUN, ..., MoreArgs = NULL, SIMPLIFY = TRUE, USE.NAMES = TRUE) 
+# mapply <- function (FUN, ..., MoreArgs = NULL, SIMPLIFY = TRUE, USE.NAMES = TRUE) 
 # {
 #         FUN <- match.fun(FUN)
 #         dots <- list(...)
