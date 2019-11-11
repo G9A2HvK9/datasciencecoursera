@@ -7,9 +7,9 @@
         #github: github.com/g9a2hvk9
         #
         #
-        #LOOP FUNCTIONS - APPLY
+        # LOOP FUNCTIONS - APPLY
         #
-        # #apply <- function (X, MARGIN, FUN, ...) 
+        # apply <- function (X, MARGIN, FUN, ...) 
         # {
         #         FUN <- match.fun(FUN)
         #         dl <- length(dim(X))
