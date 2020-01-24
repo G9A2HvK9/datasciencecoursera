@@ -1,0 +1,1 @@
+cameraData <- read.csv('./data/cameras.csv', sep = ',', header = TRUE)
