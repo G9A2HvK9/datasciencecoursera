@@ -1,0 +1,47 @@
+## The American Community Survey distributes downloadable data about United States communities. Download the 2006 microdata survey about housing for the state of Idaho using download.file() from here:
+##download.file(url = 'https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2Fss06hid.csv', destfile = './dataQuizWeek1.csv')
+file <- read.csv('./dataQuizWeek1.csv')
+
+library(dplyr)
+file %>% count(VAL, sort = FALSE) %>% print(n=100)
+## Answer is 53
+
+download.file(url = 'https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2FDATA.gov_NGAP.xlsx', destfile = './dataQuizWeek1b.xlsx')
+
+library(readxl)
+dat <- read_xlsx(path = './dataQuizWeek1b.xlsx', range = 'G18:Q23')
+sum(dat$Zip*dat$Ext,na.rm=T)
+## answer: 36534720
+
+## download.file(url = 'https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2Frestaurants.xml', destfile = './dataQuizWeek1c.xml')
+
+library(xml2)
+
+file <- read_xml('https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2Frestaurants.xml')
+file
+zipcodes <- xml_find_all(file, '//zipcode')
+
+zipcodes <- trimws(xml_text(zipcodes))
+zipcodes <- lapply(X = zipcodes, FUN = as.integer)
+
+length(which(zipcodes == 21231))
+
+## download.file('https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2Fss06pid.csv', destfile='./dataQuizWeek1d.csv')
+DT <- fread(file = './dataQuizWeek1d.csv')
+
+mean(DT$pwgtp15,by=DT$SEX) 
+system.time({ mean(DT$pwgtp15,by=DT$SEX) })
+
+DT[, mean(pwgtp15), by=SEX]
+system.time({ DT[, mean(pwgtp15), by=SEX] })
+
+sapply(split(DT$pwgtp15, DT$SEX), mean) 
+system.time({ sapply(split(DT$pwgtp15, DT$SEX), mean) })
+
+tapply(DT$pwgtp15, DT$SEX, mean) 
+system.time({ tapply(DT$pwgtp15, DT$SEX, mean) })
+
+# rowMeans(DT)[DT$SEX==1]
+# rowMeans(DT)[DT$SEX==2]
+# system.time({ rowMeans(DT)[DT$SEX==1]; rowMeans(DT)[DT$SEX==2] })
+

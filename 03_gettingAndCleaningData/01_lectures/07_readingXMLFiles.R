@@ -1,8 +1,12 @@
 
-library(XML)
-fileUrl <- 'http://www.w3schools.com/xml/simple.xml'
-download.file(fileUrl, destfile = './data/food.xml')
-doc <- xmlTreeParse(file = './data/food.xml', useInternalNodes = TRUE)
+library(xml2)
+# fileUrl <- 'http://www.w3schools.com/xml/simple.xml'
+# download.file(fileUrl, destfile = './data/food.xml')
+# doc <- xmlTreeParse(file = './data/food.xml', useInternalNodes = TRUE)
+
+file <- read_xml('http://www.w3schools.com/xml/simple.xml')
+file
+zipcodes <- xml_find_all(file, '//zipcode')
 
 ## Wrapper element for the entire document
 rootNode <- xmlRoot(doc)
