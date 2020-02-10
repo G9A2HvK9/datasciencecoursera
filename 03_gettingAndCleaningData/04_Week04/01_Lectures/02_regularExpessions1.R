@@ -17,7 +17,7 @@
 # Search: [[Bb]][[Uu]][[Ss]][[Hh]] --> match: "BUSH", "bush", "BuSh", "bushwalk", "bushy"
 
 # combine any
-# Search: ^[Ii] am --> match: "I am"
+# Search: ^[Ii] am --> match: "I am going", "i am going" // no match: "therefore I am"
 
 # ranges
 # Search: ^[0-9][a-zA-Z] --> match: "7th inning"
