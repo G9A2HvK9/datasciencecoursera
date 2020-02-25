@@ -16,16 +16,16 @@
 ## 5. Barplot
 
 # Uploads .csv on air quality from EPA
-pollution <- read.csv('./data/daily_88101_2019.csv')
+pollution <- read.csv('./data/avgpm25.csv', colClasses = c('numeric', 'character', 'factor', 'numeric', 'numeric'))
 ## Five number summary
-summary(pollution$Arithmetic.Mean)
+summary(pollution$pm25)
 ## Boxplot
-boxplot(pollution$Arithmetic.Mean, col = 'blue')
+boxplot(pollution$pm25, col = 'blue')
 abline(h = 12)
 ## Histogram
-hist(pollution$Arithmetic.Mean, col = 'green', breaks = 50)
-rug(pollution$Arithmetic.Mean)
+hist(pollution$pm25, col = 'green', breaks = 50)
+rug(pollution$pm25)
 abline(v = 12, lwd = 2)
-abline(v = median(pollution$Arithmetic.Mean), col = 'magenta', lwd = 4)
+abline(v = median(pollution$pm25), col = 'magenta', lwd = 4)
 ## Barplot
-barplot(table(pollution$State.Code), col = 'wheat', main = 'number of readings in each state')
+barplot(table(pollution$region), col = 'wheat', main = 'number of readings in each region')
